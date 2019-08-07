@@ -1,0 +1,5 @@
+<div class="alert alert-danger" style="background-color: lightblue">
+ <div style="background-color: red"><?php echo $title; ?></div>
+ <?php echo $slot; ?>
+
+</div>

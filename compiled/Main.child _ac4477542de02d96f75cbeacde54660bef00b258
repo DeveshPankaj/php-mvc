@@ -1,0 +1,17 @@
+<!-- Stored in resources/views/child.blade.php -->
+
+<?php $_shouldextend['5b6fd5951d292']=1; ?>
+
+<?php $this->startSection('title'); ?>
+ <?php echo static::e($title); ?>
+
+<?php $this->stopSection(); ?>
+
+<?php /*<?php $this->startSection('sidebar'); ?>*/ ?>
+<?php /*<?php $this->stopSection(); ?>*/ ?>
+
+<?php $this->startSection('content'); ?>
+ <?php echo static::e($content); ?>
+
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend['5b6fd5951d292']) { echo $this->runChild('Main.layout'); } ?>

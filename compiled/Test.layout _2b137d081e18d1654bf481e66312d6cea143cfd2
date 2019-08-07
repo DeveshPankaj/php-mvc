@@ -1,0 +1,15 @@
+<!-- Stored in resources/views/layouts/app.blade.php -->
+
+<html>
+<head>
+ <title><?php echo $this->yieldContent('title'); ?></title>
+</head>
+<body>
+<?php $this->startSection('sidebar'); ?>
+<?php echo $this->yieldSection(); ?>
+
+<div class="container">
+ <?php echo $this->yieldContent('content'); ?>
+</div>
+</body>
+</html>

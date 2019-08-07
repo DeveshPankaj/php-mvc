@@ -1,0 +1,26 @@
+{
+  "name": "eftec/bladeone",
+  "description": "The standalone version Blade Template Engine from Laravel in a single php file",
+  "type": "library",
+  "keywords": ["blade","template","view","php"],
+  "homepage": "https://github.com/EFTEC/BladeOne",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jorge Patricio Castro Castillo",
+      "email": "jcastro@eftec.cl"
+    }],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.2-dev"
+    }
+  },
+  "archive": {
+    "exclude": ["/examples"]
+  },
+  "autoload": {
+      "psr-4": {
+        "eftec\\bladeone\\": "lib/"
+      }
+  }
+}

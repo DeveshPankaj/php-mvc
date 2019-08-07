@@ -1,0 +1,18 @@
+<?php $x1 =@20; ?>
+Injection:<hr>
+<?php $metric =new App\Services\MetricsService\metric(); ?>
+<?php $simpleclass =new \simpleclass(); ?>
+<hr>
+<div>
+ Monthly Revenue: <?php echo static::e($metric->monthlyRevenue()); ?>.
+</div>
+<div>
+ Ping: <?php echo static::e($simpleclass->ping('pong!')); ?>.
+</div>
+
+
+<?php $simpleclass =new \simpleclass(); ?>
+
+<div>
+ Ping Again: <?php echo static::e($simpleclass->ping('pong again!')); ?>.
+</div>

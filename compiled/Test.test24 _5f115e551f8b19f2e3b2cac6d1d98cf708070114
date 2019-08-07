@@ -1,0 +1,53 @@
+<h1>Test for version 2.4 and higher</h1>
+
+<?php echo json_encode(($records)); ?>;
+
+<h2>test of isset</h2>
+<?php if(isset($name)): ?>
+$name is defined
+<?php endif; ?>
+<h2>test of include when</h2>
+<?php echo $this->includeWhen(true,'Test2.include',['v1'=>'hello']); ?>
+<h2>Test of includefirst</h2>
+<?php echo $this->includeFirst(['Test2.nope', 'Test2.include'], ['v1' => 'hello']); ?>
+
+<h2>prepend</h2>
+
+
+
+<?php $this->startPush('scripts'); ?>
+ This will be second...
+<?php $this->stopPush(); ?>
+
+
+<?php $this->startPush('scripts'); ?>
+This will be first...
+<?php $this->stopPrepend(); ?>
+
+
+<hr>
+<?php echo $this->yieldPushContent('scripts'); ?>
+<hr>
+
+<h2>empty test</h2>
+
+<?php $__empty_1 = true; foreach($records as $rec): $__empty_1 = false; ?>
+ <li><?php echo static::e($rec); ?></li>
+<?php endforeach; if ($__empty_1): ?>
+ <p>No record</p>
+<?php endif; ?>
+
+<?php $__empty_1 = true; foreach($emptyArray as $user): $__empty_1 = false; ?>
+ <li><?php echo static::e($user->name); ?></li>
+<?php endforeach; if ($__empty_1): ?>
+ <p>No users</p>
+<?php endif; ?>
+
+<h2> empty($value) test</h2>
+
+<?php if (empty($emptyArray)): ?>
+ $emptyArray is empty
+<?php endif; ?>
+
+<h2> Test append</h2>
+

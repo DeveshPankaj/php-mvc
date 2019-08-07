@@ -1,0 +1,16 @@
+<h1>Testing the token <?php echo static::e($token); ?></h1>
+<form method="post">
+ <?php  echo '<input type="hidden" name="_token" value="f07b36ec7ef60920a0cc"/>';?>
+ <input type="text" name="field" value="<?php echo static::e($field); ?>" /><br/>
+ <input type="submit" name="button" value="send"/>
+
+ <?php if($isValid): ?>
+ <hr>Token is valid<hr>
+ <?php else: ?>
+ <hr><span style="background-color:red">Token ERROR</span><hr>
+ <?php endif; ?>
+
+</form>
+
+
+</form>

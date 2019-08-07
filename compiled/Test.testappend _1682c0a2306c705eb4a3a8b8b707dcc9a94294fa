@@ -1,0 +1,10 @@
+<?php $_shouldextend['5b6b208b7d968']=1; ?>
+
+<?php $this->startSection('sidebar'); ?>
+ <p>This is appended to the master sidebar.</p>
+<?php $this->appendSection(); ?>
+
+<?php $this->startSection('content'); ?>
+ <p>This is my body content.</p>
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend['5b6b208b7d968']) { echo $this->runChild('test.masterappend'); } ?>

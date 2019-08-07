@@ -1,0 +1,77 @@
+<h1><?php echo $title; ?>.</h1>
+<h2>Current user: <?php echo ''; ?></h2>
+<br>
+@auth('admin')
+ <hr>
+<?php if(isset($this->currentUser) && $this->currentRole=='admin'): ?>
+ account is adminstrator
+<?php elseif(isset($this->currentUser) && $this->currentRole=='user'): ?>
+ account is user
+<?php else: ?>
+ account is not administrator neither user
+<?php endif; ?>
+<br><br>
+@can('edit','noallowed'), @elsecan('view'), @elsecan(), @endcan() By code, nobody is allowed
+<hr>
+<?php if (call_user_func($this->authCallBack,'edit','noallowed')): ?>
+ The user can edit!
+<?php elseif (call_user_func($this->authCallBack,'view')): ?>
+ The user can edit but he can view
+<?php else: ?>
+ The user can't edit neither view.
+<?php endif; ?>
+<br><br>
+@cannot('edit','noallowed'),@elsecannot('delete') By code, nobody is allowed
+<hr>
+<?php if (!call_user_func($this->authCallBack,'edit','noallowed')): ?>
+ The user is not allowed to edit the element not allowed
+<?php elseif (!call_user_func($this->authCallBack,'delete')): ?>
+ The user is not allowed to edit the element not allowed, but delete
+<?php else: ?>
+ The user is allowed to edit
+<?php endif; ?>
+<br><br>
+@cannot('edit')
+<hr>
+<?php if (!call_user_func($this->authCallBack,'edit')): ?>
+ The user is not allowed to edit
+<?php elseif (!call_user_func($this->authCallBack,'delete')): ?>
+ The user is allowed to edit but delete
+<?php else: ?>
+ The user is allowed to edit
+<?php endif; ?>
+<br><br>
+@can('edit')
+<hr>
+<?php if (call_user_func($this->authCallBack,'edit')): ?>
+ The user can edit!
+<?php else: ?>
+ The user can't edit!
+<?php endif; ?>
+<br><br>
+@canany(['edit','add'])
+<hr>
+<?php if (call_user_func($this->authAnyCallBack,['edit','add'])): ?>
+ The user can edit or add!
+<?php else: ?>
+ The user can't edit or add!
+<?php endif; ?>
+<br><br>
+@guest()
+<hr>
+<?php if(!isset($this->currentUser)): ?>
+ User is anonymous
+<?php elseif(!isset($this->currentUser) || $this->currentRole!='admin'): ?>
+ User is not anonymous and is not admin
+<?php else: ?>
+ User is not anonymous
+<?php endif; ?>
+
+<br><br>
+@auth()
+<hr>
+<?php if(isset($this->currentUser)): ?>
+ User is not anonymous
+<?php else: ?>
+ User is anonymous
+<?php endif; ?>

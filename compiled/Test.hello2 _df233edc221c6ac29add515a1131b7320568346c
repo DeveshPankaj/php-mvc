@@ -1,0 +1,27 @@
+<?php $_shouldextend['5b6f5cdfe96cf']=1; ?>
+
+<?php $this->startSection('title', 'Page Title'); ?>
+
+<?php $this->startSection('sidebar'); ?>
+ <p style="background-color: darkgrey">It is a sidebar created in hello2.blade.php. It could be used as many times as you want
+ @parentXYZABC
+ </p>
+
+ <hr>assets:
+ <?php echo $this->baseUrl.('aaa.js'); ?>
+
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('sidebar2'); ?>
+ <p style="background-color: darkgrey">It is a sidebar2 created in hello2.blade.php. It could be used as many times as you want
+ @parentXYZABC
+ </p>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('footer'); ?>
+ <p style="background-color: darkgrey">It is the footer. This footer is yield so it shouldn't contain a parent
+ @parentXYZABC this parent is completely ignored.
+ </p>
+<?php $this->stopSection(); ?>
+
+<?php if (@$_shouldextend['5b6f5cdfe96cf']) { echo $this->runChild('Shared.newlayout'); } ?>
